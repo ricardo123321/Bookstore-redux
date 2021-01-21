@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import App from './components/App';
+import App from './App';
 import store from './reducers/index';
 import { createBook } from './actions/index';
 
@@ -18,7 +18,7 @@ const intialState = [
   },
   {
     bookID: Math.floor(Math.random() * 1000),
-    title: 'Cracking the coding interview',
+    title: 'mechanical thinking',
     category: 'Learning',
   },
 ];
