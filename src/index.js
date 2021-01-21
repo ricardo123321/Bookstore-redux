@@ -1,11 +1,36 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import { Provider } from 'react-redux';
+import App from './components/App';
+import store from './reducers/index';
+import { createBook } from './actions/index';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root'),
+const intialState = [
+  {
+    bookID: Math.floor(Math.random() * 1000),
+    title: 'guns and bullets',
+    category: 'Action',
+  },
+  {
+    bookID: Math.floor(Math.random() * 1000),
+    title: 'Nobody dies alone',
+    category: 'Sci-Fi',
+  },
+  {
+    bookID: Math.floor(Math.random() * 1000),
+    title: 'Cracking the coding interview',
+    category: 'Learning',
+  },
+];
+
+intialState.map(book => store.dispatch(createBook(book)));
+
+const jsx = (
+  <Provider store={store}>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </Provider>
 );
+
+ReactDOM.render(jsx, document.getElementById('root'));

@@ -1,7 +1,7 @@
-import React from "react";
-import { connect } from "react-redux";
-import PropTypes from "prop-types";
-import Book from "../components/Book";
+import React from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import Book from '../components/Book';
 
 const BooksList = ({ books }) => (
   <table>
@@ -10,7 +10,7 @@ const BooksList = ({ books }) => (
       <th>Title</th>
       <th>Category</th>
     </tr>
-    {books.map((book) => (
+    {books.map(book => (
       <Book
         key={book.bookID}
         bookID={book.bookID}

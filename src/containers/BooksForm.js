@@ -1,13 +1,13 @@
-import React from "react";
+import React from 'react';
 
 const bookCategories = [
-  "Action",
-  "Biography",
-  "History",
-  "Horror",
-  "Kids",
-  "Learning",
-  "Sci-Fi",
+  'Action',
+  'Biography',
+  'History',
+  'Horror',
+  'Kids',
+  'Learning',
+  'Sci-Fi',
 ];
 
 const BooksForm = () => (
@@ -17,7 +17,7 @@ const BooksForm = () => (
     </div>
     <div className="input-group">
       <select name="book-categories" id="categories">
-        {bookCategories.map((category) => (
+        {bookCategories.map(category => (
           <option key={`key-${category}`} value={category}>
             {category}
           </option>
