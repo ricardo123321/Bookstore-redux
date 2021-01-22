@@ -1,30 +1,30 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { createBook } from "../actions/index";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { createBook } from '../actions/index';
 
 const bookCategories = [
-  "Action",
-  "Biography",
-  "History",
-  "Horror",
-  "Kids",
-  "Learning",
-  "Sci-Fi",
+  'Action',
+  'Biography',
+  'History',
+  'Horror',
+  'Kids',
+  'Learning',
+  'Sci-Fi',
 ];
 
 const BooksForm = ({ createBook }) => {
-  const [title, setTitle] = useState("");
-  const [category, setCategory] = useState("");
+  const [title, setTitle] = useState('');
+  const [category, setCategory] = useState('');
 
-  const handleTitleChange = (event) => {
+  const handleTitleChange = event => {
     setTitle(() => event.target.value);
   };
 
-  const handleCategoryChange = (event) => {
+  const handleCategoryChange = event => {
     setCategory(() => event.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
 
     if (title && category) {
@@ -34,8 +34,8 @@ const BooksForm = ({ createBook }) => {
         category,
       });
 
-      setTitle("");
-      setCategory("");
+      setTitle('');
+      setCategory('');
     }
   };
 
@@ -52,7 +52,7 @@ const BooksForm = ({ createBook }) => {
           onChange={handleCategoryChange}
         >
           <option value="">none</option>
-          {bookCategories.map((category) => (
+          {bookCategories.map(category => (
             <option key={`key-${category}`} value={category}>
               {category}
             </option>
