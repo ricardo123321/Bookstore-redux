@@ -72,4 +72,4 @@ BooksForm.propTypes = {
 
 const mapDispatchToProps = { createBook };
 
-export default BooksForm;
+export default connect(null, mapDispatchToProps)(BooksForm);
