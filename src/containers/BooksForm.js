@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { createBook } from "../actions/index";
 
 const bookCategories = [
@@ -32,6 +33,10 @@ const BooksForm = ({ createBook }) => {
       <button type="button">Submit</button>
     </form>
   );
+};
+
+BooksForm.propTypes = {
+  createBook: PropTypes.func.isRequired,
 };
 
 export default BooksForm;
