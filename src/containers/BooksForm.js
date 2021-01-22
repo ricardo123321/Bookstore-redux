@@ -42,10 +42,16 @@ const BooksForm = ({ createBook }) => {
   return (
     <form>
       <div className="input-group">
-        <input type="text" />
+        <input type="text" value={title} onChange={handleTitleChange} />
       </div>
       <div className="input-group">
-        <select name="book-categories" id="categories">
+        <select
+          name="book-categories"
+          id="categories"
+          value={category}
+          onChange={handleCategoryChange}
+        >
+          <option value="">none</option>
           {bookCategories.map((category) => (
             <option key={`key-${category}`} value={category}>
               {category}
@@ -53,7 +59,9 @@ const BooksForm = ({ createBook }) => {
           ))}
         </select>
       </div>
-      <button type="button">Submit</button>
+      <button type="button" onClick={handleSubmit}>
+        Submit
+      </button>
     </form>
   );
 };
