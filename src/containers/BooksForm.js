@@ -16,6 +16,29 @@ const BooksForm = ({ createBook }) => {
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
 
+  const handleTitleChange = (event) => {
+    setTitle(() => event.target.value);
+  };
+
+  const handleCategoryChange = (event) => {
+    setCategory(() => event.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (title && category) {
+      createBook({
+        bookID: Math.floor(Math.random() * 1000),
+        title,
+        category,
+      });
+
+      setTitle("");
+      setCategory("");
+    }
+  };
+
   return (
     <form>
       <div className="input-group">
