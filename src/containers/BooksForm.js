@@ -70,4 +70,6 @@ BooksForm.propTypes = {
   createBook: PropTypes.func.isRequired,
 };
 
+const mapDispatchToProps = { createBook };
+
 export default BooksForm;

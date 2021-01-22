@@ -32,6 +32,8 @@ BooksList.defaultProps = {
   books: [],
 };
 
+const mapDispatchToProps = { removeBook };
+
 const mapStateToProps = ({ books }) => ({
   books,
 });
