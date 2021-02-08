@@ -1,36 +1,62 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import Book from '../components/Book';
+import React, { useState } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { createBook } from "../actions/index";
+import { bookCategories } from "../helpers/index";
 
-const BooksList = ({ books }) => (
-  <table>
-    <tr>
-      <th>BookID</th>
-      <th>Title</th>
-      <th>Category</th>
-    </tr>
-    {books.map(book => (
-      <Book
-        key={book.bookID}
-        bookID={book.bookID}
-        title={book.title}
-        category={book.category}
-      />
-    ))}
-  </table>
-);
+const BooksForm = ({ createBook }) => {
+  const [title, setTitle] = useState("");
+  const [category, setCategory] = useState("");
 
-BooksList.propTypes = {
-  books: PropTypes.arrayOf(PropTypes.object),
+  const handleTitleChange = (event) => {
+    setTitle(() => event.target.value);
+  };
+
+  const handleCategoryChange = (event) => {
+    setCategory(() => event.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (title && category) {
+      createBook({
+        bookID: Math.floor(Math.random() * 1000),
+        title,
+        category,
+      });
+
+      setTitle("");
+      setCategory("");
+    }
+  };
+
+  return (
+    <form>
+      <div className="input-group">
+        <input type="text" value={title} onChange={handleTitleChange} />
+      </div>
+      <div className="input-group">
+        <select value={category} onChange={handleCategoryChange}>
+          <option value="">none</option>
+          {bookCategories.map((category) => (
+            <option key={`key-${category}`} value={category}>
+              {category}
+            </option>
+          ))}
+        </select>
+      </div>
+      <button type="button" onClick={handleSubmit}>
+        Submit
+      </button>
+    </form>
+  );
 };
 
-BooksList.defaultProps = {
-  books: [],
+BooksForm.propTypes = {
+  createBook: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = ({ books }) => ({
-  books,
-});
+const mapDispatchToProps = { createBook };
 
-export default connect(mapStateToProps)(BooksList);
+export default connect(null, mapDispatchToProps)(BooksForm);
