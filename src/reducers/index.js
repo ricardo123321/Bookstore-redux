@@ -1,10 +1,11 @@
-import { combineReducers } from 'redux';
-import booksReducer from './book';
-import filterReducer from './filter';
+import { combineReducers, createStore } from "redux";
+import booksReducer from "./books";
+import filterReducer from "./filter";
 
-const rootReducer = combineReducers({
-  books: booksReducer,
-  filter: filterReducer,
-});
+const store = createStore(
+  combineReducers({ books: booksReducer, filter: filterReducer }),
+  // eslint-disable-next-line no-underscore-dangle
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
-export default rootReducer;
+export default store;
