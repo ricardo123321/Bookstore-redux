@@ -8,3 +8,5 @@ export default (state = "All", action) => {
       return state;
   }
 };
+
+export default filterReducer;
