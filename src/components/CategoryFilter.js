@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
-import { bookCategories } from "../helpers/index";
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import { bookCategories } from '../helpers';
 
 const CategoryFilter = ({ handleFilterChange }) => {
-  const [text, setText] = useState("All");
+  const [text, setText] = useState('All');
 
-  const handleTextChange = (e) => {
+  const handleTextChange = e => {
     const {
       target: { value },
     } = e;
@@ -18,7 +18,7 @@ const CategoryFilter = ({ handleFilterChange }) => {
   return (
     <select value={text} onChange={handleTextChange}>
       <option value="All">All</option>
-      {bookCategories.map((book) => (
+      {bookCategories.map(book => (
         <option key={book} value={book}>
           {book}
         </option>

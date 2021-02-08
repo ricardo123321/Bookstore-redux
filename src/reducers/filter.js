@@ -1,6 +1,6 @@
-import { CHANGE_FILTER } from "../action-types/index";
+import { CHANGE_FILTER } from '../action-types/index';
 
-export default (state = "All", action) => {
+export default (state = 'All', action) => {
   switch (action.type) {
     case CHANGE_FILTER:
       return action.value;
@@ -8,5 +8,3 @@ export default (state = "All", action) => {
       return state;
   }
 };
-
-export default filterReducer;
